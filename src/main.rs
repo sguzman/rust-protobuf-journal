@@ -3,7 +3,6 @@ extern crate quick_protobuf;
 
 pub mod journal;
 
-use chrono::prelude::*;
 use std::env;
 use journal::JournalEntry;
 use std::borrow::Cow;
