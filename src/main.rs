@@ -8,7 +8,6 @@ use quick_protobuf::Writer;
 use std::env;
 use std::borrow::Cow;
 use std::str;
-use std::str::from_utf8;
 use std::time::SystemTime;
 use std::io::{stdout, Write};
 
@@ -37,5 +36,6 @@ fn main() {
             .expect("Cannot write message!");
     }
 
-    stdout().write_all(out.as_ref());
+    stdout().write_all(out.as_ref())
+        .expect("Could not write byte array to output");
 }
