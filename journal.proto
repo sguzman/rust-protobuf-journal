@@ -3,6 +3,6 @@ syntax = "proto3";
 package journal;
 
 message JournalEntry {
-    uint32 time = 1;
+    uint64 time = 1;
     string message = 2;
 }
