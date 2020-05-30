@@ -10,16 +10,15 @@ use std::str;
 use std::io::{stdout, Write};
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    if args.len() < 2 {
+    let args: Vec<String> = env::args().skip(1).collect();
+    if args.len() != 2 {
         println!("Not enough args");
         std::process::exit(0);
     }
 
     let journal: JournalEntry = {
         let time: &String = &args[0];
-        let time: u64 = time.parse::<u64>()
-            .expect("Could not parse u64 int");
+        let time: u64 = time.parse().unwrap();
 
         let message: Cow<str> = {
             let message: &String = &args[1];
